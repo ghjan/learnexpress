@@ -3,6 +3,8 @@ import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from '
 import {UserService} from '../../user.service';
 import {User} from '../../user';
 import {AuthTokenService} from '../../authtoken.service';
+import {Router} from '@angular/router';
+import {JumbotronServive} from '../../jumbotron.service';
 
 @Component({
   selector: 'app-regist',
@@ -14,9 +16,12 @@ export class RegistComponent implements OnInit {
   registForm: FormGroup;
   user: User = new User(0, '', '', '');
 
-  constructor(private fb: FormBuilder,
-              private userSer: UserService,
-              private tokenServ: AuthTokenService) {
+  constructor(
+    private router: Router,
+    private jumService: JumbotronServive,
+    private fb: FormBuilder,
+    private userSer: UserService,
+    private tokenServ: AuthTokenService) {
   }
 
   ngOnInit() {
@@ -55,6 +60,33 @@ export class RegistComponent implements OnInit {
 
   checkValid() {
     this.repassword.setValidators([Validators.required, passwordEquals(this.pass.nativeElement.value)]);
+  }
+
+  prepareSaveUser(): User {
+    const formModel = this.registForm.value;
+    const saveUser: User = {
+      id: this.user.id,
+      name: formModel.name as string,
+      password: formModel.password as string,
+      email: formModel.email
+    };
+    return saveUser;
+  }
+
+  onSubmit() {
+    this.user = this.prepareSaveUser();
+    this.userSer.saveUser(this.user).subscribe(
+      (value) => {
+        this.tokenServ.setToken(value['token']);
+        this.router.navigate(['/birthday']);
+        alert('注册成功！');
+      },
+      (err) =>
+        alert(this.userSer.handleError(err)),
+      () => {
+        console.log('The post observable is now completed.');
+      }
+    );
   }
 }
 

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {Code404Component} from './code404/code404.component';
+import {Code404Component} from './code404.component';
 
 const routes: Routes = [
   {
