@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {JumbotronServive} from './jumbotron-servive.service';
+import {JumbotronServive} from './jumbotron.service';
 
 @Component({
   selector: 'app-root',

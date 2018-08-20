@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { JumbotronServive } from './jumbotron-servive.service';
+import { JumbotronServive } from './jumbotron.service';
 
 describe('JumbotronServive', () => {
   beforeEach(() => {
