@@ -9,6 +9,7 @@ import {Code404Component} from './code404/code404.component';
 import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {UsersModule} from './users/users.module';
+import {AuthTokenService} from './authtoken.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {UsersModule} from './users/users.module';
     HttpClientModule
   ],
   providers: [JumbotronServive,
-    UserService],
+    UserService,
+    AuthTokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
