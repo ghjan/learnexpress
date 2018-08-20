@@ -1,9 +1,9 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {UserService} from '../../user.service';
 import {User} from '../../user';
 import {AuthTokenService} from '../../authtoken.service';
-import {Router} from '@angular/router';
 import {JumbotronServive} from '../../jumbotron.service';
 
 @Component({
