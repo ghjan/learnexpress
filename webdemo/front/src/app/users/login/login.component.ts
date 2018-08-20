@@ -12,6 +12,9 @@ import {AuthTokenService} from '../../authtoken.service';
 })
 export class LoginComponent {
   user: User = new User(0, '', '', '');
+  imgSrc = '/assets/images/eye-off.png';
+  passtype = 'password';
+  notPass = false;
 
   constructor(
     private route: Router,
@@ -34,5 +37,20 @@ export class LoginComponent {
         alert(this.userServ.handleError(err)),
       () => console.log('The Post observable is now completed. ')
     );
+  }
+
+
+  toggleText() {
+    /* this.imgSrc = (this.imgSrc === '/assets/images/eye_open.png'?
+    '/assets/images/eye-off.png' : '/assets/images/eye_open.png'); */
+    if (!this.notPass) {
+      this.imgSrc = '/assets/images/eye-off.png';
+      this.passtype = 'password';
+      this.notPass = true;
+    } else {
+      this.imgSrc = '/assets/images/eye_open.png';
+      this.passtype = 'text';
+      this.notPass = false;
+    }
   }
 }

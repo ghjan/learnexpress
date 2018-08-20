@@ -12,14 +12,16 @@
     <div class="form-group">
       <label for="password">Password</label>
       <div class="input-group">
-        <input class="form-control" id="password" name="passwrod" placeholder="Enter password"
+        <input [attr.type]="passtype" class="form-control" id="password" name="passwrod" placeholder="Enter password"
                [(ngModel)]="user.password"
                required #password="ngModel">
+        <img src="{{imgSrc}}" alt="eye_off.png" (click)="toggleText()">
       </div>
       <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
         Password is required!
       </div>
     </div>
+
     <div class="form-group form-btn">
       <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Submit</button>
       <button type="button" class="btn btn-light" (click)="loginForm.reset()">Cancel</button>

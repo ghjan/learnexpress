@@ -34,7 +34,7 @@ export class RegistComponent implements OnInit {
       'password': [this.user.password,
         [Validators.required,
           Validators.minLength(8),
-          Validators.pattern(/^[A-Z][a-zA-Z0-9_-]+$/)]],
+          Validators.pattern(/^[a-zA-Z0-9_-]+$/)]],
       'email': [this.user.email,
         Validators.pattern(/^([a-zA-Z0-9_\.\-]+)@([a-zA-Z0-9_\.\-]+)\.([a-zA-Z]{2,4})$/)],
       'repassword': [this.user.password, [
