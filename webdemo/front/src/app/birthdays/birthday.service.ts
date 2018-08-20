@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {UserService} from '../user.service';
 
-import 'rxjs/add/operator/map';
 import {map} from 'rxjs/operators';
 
 export class Friend {
