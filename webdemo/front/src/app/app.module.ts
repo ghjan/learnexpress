@@ -10,18 +10,22 @@ import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {UsersModule} from './users/users.module';
 import {AuthTokenService} from './authtoken.service';
+import {BirthdaysModule} from './birthdays/birthdays.module';
+import { BirthdayListComponent } from './birthdays/birthday-list/birthday-list.component';
+import { BirthdayDetailComponent } from './birthdays/birthday-detail/birthday-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Code404Component
+    Code404Component,
   ],
   imports: [
     BrowserModule,
-    UsersModule,
-    NgbModule.forRoot(),
+    NgbModule.forRoot(), // bootstrap
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    UsersModule,
+    BirthdaysModule
   ],
   providers: [JumbotronServive,
     UserService,
