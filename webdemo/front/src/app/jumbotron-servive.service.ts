@@ -1,9 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
+
+export class Jumbotron {
+  constructor(
+    public title: string,
+    public lead: string,
+    public content: string
+  ) {
+  }
+}
 
 @Injectable({
   providedIn: 'root'
 })
-export class JumbotronServiveService {
+export class JumbotronServive {
+  private jumbSource = new Subject<Jumbotron>();
+  jumb$ = this.jumbSource.asObservable();
 
-  constructor() { }
+  setJumbotron(jumb: Jumbotron) {
+    this.jumbSource.next(jumb);
+  }
 }

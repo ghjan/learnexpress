@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { JumbotronServiveService } from './jumbotron-servive.service';
+import { JumbotronServive } from './jumbotron-servive.service';
 
-describe('JumbotronServiveService', () => {
+describe('JumbotronServive', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [JumbotronServiveService]
+      providers: [JumbotronServive]
     });
   });
 
-  it('should be created', inject([JumbotronServiveService], (service: JumbotronServiveService) => {
+  it('should be created', inject([JumbotronServive], (service: JumbotronServive) => {
     expect(service).toBeTruthy();
   }));
 });
