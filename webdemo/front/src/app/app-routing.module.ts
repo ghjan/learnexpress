@@ -1,17 +1,23 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {Code404Component} from './code404/code404.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/users',
+    pathMatch: 'full'
+  },
+  {path: '**', component: Code404Component}, // 任何其他路径都匹配
+];
 
 @NgModule({
   imports: [
-    // 引入路由规则
-    RouterModule.forRoot(routes)],
-  exports: [
-    // 暴露路由模块
-    RouterModule
+    RouterModule.forRoot(routes)
   ],
-  declarations: []
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule {
 }
