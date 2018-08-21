@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BirthdaysComponent} from './birthdays/birthdays.component';
 import {BirthdayDetailComponent} from './birthday-detail/birthday-detail.component';
 import {BirthdayListComponent} from './birthday-list/birthday-list.component';
